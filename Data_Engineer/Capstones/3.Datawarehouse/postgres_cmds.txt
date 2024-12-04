@@ -1,0 +1,11 @@
+# load table schema
+psql --u postgres softcart < CREATE_SCRIPT.sql
+
+# load data to table
+psql --u postgres
+\c softcart
+COPY "DimDate" FROM '/Users/caesar/Downloads/projects/coursera_course/Data_Engineer/Capstones/3.Datawarehouse/DimDate.csv' DELIMITER ',' CSV HEADER;
+COPY "DimCategory" FROM '/Users/caesar/Downloads/projects/coursera_course/Data_Engineer/Capstones/3.Datawarehouse/DimCategory.csv' DELIMITER ',' CSV HEADER;
+COPY "DimCountry" FROM '/Users/caesar/Downloads/projects/coursera_course/Data_Engineer/Capstones/3.Datawarehouse/DimCountry.csv' DELIMITER ',' CSV HEADER;
+COPY "FactSales" FROM '/Users/caesar/Downloads/projects/coursera_course/Data_Engineer/Capstones/3.Datawarehouse/FactSales.csv' DELIMITER ',' CSV HEADER;
+
