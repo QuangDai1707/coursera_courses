@@ -1,0 +1,6 @@
+# access mysql cli
+mysql -u root -p
+SHOW DATABASES
+
+# run sql file
+source /Users/caesar/Downloads/projects/coursera_course/Data_Engineer/Capstones/4.ETL/sales.sql
