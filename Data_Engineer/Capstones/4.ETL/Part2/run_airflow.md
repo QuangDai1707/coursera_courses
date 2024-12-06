@@ -1,3 +1,34 @@
+# Local Machine
+## Step 1: download airflow
+- pip install apache-airflow
+- export AIRFLOW_HOME="~/airflow"
+## Step 2: initialize db -> create the db schema
+- airflow db init
+- airflow db migrate
+## Step 3: create admin user
+```python
+airflow users create \
+          --username admin \
+          --firstname FIRST_NAME \
+          --lastname LAST_NAME \
+          --role Admin \
+          --email admin@example.org
+```
+## Start server and scheduler
+- airflow webserver -p 8080 & airflow scheduler &
+
+## Run DAG
+- submit dag to airflow: 
+  - cp accesslog.txt ~/airflow/dags/
+- unpause dag:
+  - airflow dag unpause process_web_log
+
+## Note:
+Schedule monitor all tasks and DAGs, then trigger the task instances once their dependencies are completed.
+
+
+
+# Docker
 # 1. Pull the Latest Apache Airflow Image
 docker pull apache/airflow:latest
 
@@ -30,3 +61,4 @@ docker run -d \
 
 # 6. Access the Web Interface
 http://localhost:8080
+
